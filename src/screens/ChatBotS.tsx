@@ -45,10 +45,9 @@ export default function ChatbotS({ navigation }: any) {
     setLoading(true);
     try {
     const response = await chatbotService.selectOption(optionId);
-    console.log('✅ Respuesta del chatbot:', response); // ← AGREGAR ESTO
+ 
 
 if (response.success) {
-  console.log('🎯 Acción recibida:', response.action); // ← Y ESTO
   setCurrentNode(response.node);
   setMessages(prev => [...prev, { text: response.node.message, isUser: false }]);
 

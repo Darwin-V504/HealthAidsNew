@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       const userData = await storage.getUser();
       
       if (token && userData) {
-        apiClient.setToken(token); // ✅ AHORA FUNCIONA
+        apiClient.setToken(token); 
         setUser(userData);
       }
     } catch (error) {
@@ -57,11 +57,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const response = await apiClient.post('/api/Auth/login', { email, password }) as any;
     
     if (response?.success === true) {
-      // ✅ Guardar token y usuario
+    
       await storage.setToken(response.token);
       await storage.setUser(response.user);
       
-      // ✅ IMPORTANTE: También setear el token en apiClient
+      
       apiClient.setToken(response.token);
       
       setUser(response.user);
@@ -78,7 +78,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const register = async (name: string, email: string, password: string, phone: string): Promise<boolean> => {
     try {
-      // ✅ URL CORREGIDA
+     
       const response = await apiClient.post('/api/Auth/register', { name, email, password, phone }) as any;
       
       if (response?.success) {
@@ -97,7 +97,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const logout = async () => {
     await storage.removeToken();
     await storage.removeUser();
-    apiClient.clearToken(); // ✅ AHORA FUNCIONA
+    apiClient.clearToken();
     setUser(null);
   };
 

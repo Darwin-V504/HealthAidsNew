@@ -23,19 +23,19 @@ class ApiClient {
     ...(options.headers as Record<string, string> || {})
   };
 
-  // ✅ ESTO ES LO IMPORTANTE - Obtener token y enviarlo
+  
   const token = await AsyncStorage.getItem('auth_token');
   if (token) {
     headers['Authorization'] = `Bearer ${token}`;
-    console.log('🔑 Token enviado:', token.substring(0, 10) + '...');
+ 
   } else {
-    console.log('⚠️ No hay token disponible');
+   
   }
 
   try {
     const response = await fetch(url, { ...options, headers });
     const text = await response.text();
-    console.log('📦 Respuesta:', text);
+    
     
     let data = text ? JSON.parse(text) : {};
     
@@ -45,7 +45,7 @@ class ApiClient {
     
     return data;
   } catch (error) {
-    console.error('❌ Error:', error);
+    
     throw error;
   }
 }

@@ -1,5 +1,3 @@
-
-// src/components/SymptomChip.tsx
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../contexts/ThemeContext';

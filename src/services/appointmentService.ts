@@ -4,12 +4,12 @@ export const appointmentService = {
   // Obtener citas de un usuario
   getUserAppointments: async (userId: number) => {
     try {
-      console.log('📤 Solicitando citas para usuario:', userId);
+     
       const response = await apiClient.get(`/api/Appointment/user/${userId}`);
-      console.log('📦 Respuesta citas:', response);
+      
       return response;
     } catch (error) {
-      console.error('❌ Error fetching user appointments:', error);
+    
       return { appointments: [] };
     }
   },
@@ -20,7 +20,6 @@ export const appointmentService = {
       const response = await apiClient.get(`/api/Appointment/upcoming/${userId}`);
       return response;
     } catch (error) {
-      console.error('Error fetching upcoming appointments:', error);
       return { appointments: [] };
     }
   },
@@ -36,15 +35,15 @@ export const appointmentService = {
     }
   },
 
-  // ✅ CREAR NUEVA CITA (CORREGIDO)
+ 
   createAppointment: async (appointmentData: any) => {
     try {
-      console.log('📤 Service - Enviando a /api/Appointment:', appointmentData);
+      
       const response = await apiClient.post('/api/Appointment', appointmentData);
-      console.log('📦 Service - Respuesta:', response);
+   
       return response;
     } catch (error) {
-      console.error('❌ Service - Error:', error);
+     
       throw error;
     }
   },

@@ -24,7 +24,7 @@ export default function CButton({
   const { theme } = useTheme();
   const colors = getThemeColors(theme);
 
-  // Conversión explícita a booleano
+ 
   const isDisabled = disabled === true;
   const isLoading = loading === true;
 

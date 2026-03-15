@@ -33,7 +33,7 @@ export default function CInput({
   const { theme } = useTheme();
   const colors = getThemeColors(theme);
 
-  // Conversión explícita y forzada a booleano
+  
   const isSecure = secureTextEntry === true;
   const isEditable = editable === true;
   const isRequired = required === true;

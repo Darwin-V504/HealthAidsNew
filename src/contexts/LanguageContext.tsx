@@ -1,4 +1,3 @@
-// src/contexts/LanguageContext.tsx
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { I18n } from "i18n-js";
 import { createContext, useContext, useEffect, useState } from "react";

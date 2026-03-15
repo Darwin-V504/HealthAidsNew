@@ -25,13 +25,13 @@ export default function AppointmentCard({
   const hasOnPress = onPress !== undefined && onPress !== null;
   const shouldShowActions = showActions === true;
 
-  // ✅ Usar los campos correctos según lo que venga del backend
+  
   const displaySpecialty = appointment.doctorSpecialty || appointment.specialty || 'Especialidad no especificada';
   
-  // ✅ Para la fecha, usar appointmentDate si existe, sino date
+ 
   const displayDate = appointment.appointmentDate || appointment.date;
   
-  // ✅ Para la hora, usar appointmentDate si no hay time
+ 
   const displayTime = appointment.time || appointment.appointmentDate;
 
   return (

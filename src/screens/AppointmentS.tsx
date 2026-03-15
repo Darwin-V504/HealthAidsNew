@@ -21,7 +21,7 @@ export default function AppointmentsS({ navigation, route }: any) {
   // Cargar citas cuando la pantalla se enfoca o cuando se recibe params.refresh
   useEffect(() => {
     if (user) {
-      console.log('🔄 Cargando citas para usuario:', user.id);
+     
       dispatch(fetchAppointments(user.id));
     }
   }, [user, dispatch]);
@@ -29,7 +29,6 @@ export default function AppointmentsS({ navigation, route }: any) {
   // Recargar cuando la pantalla recibe foco
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
-      console.log('👀 Appointments enfocada, recargando...');
       if (user) {
         dispatch(fetchAppointments(user.id));
       }
@@ -38,10 +37,10 @@ export default function AppointmentsS({ navigation, route }: any) {
     return unsubscribe;
   }, [navigation, user, dispatch]);
 
-  // Recargar cuando llega params.refresh desde Schedules
+
   useEffect(() => {
     if (route.params?.refresh && user) {
-      console.log('🔄 Refresh param recibido, recargando citas');
+      
       dispatch(fetchAppointments(user.id));
       // Limpiar el parámetro para evitar recargas infinitas
       navigation.setParams({ refresh: undefined });

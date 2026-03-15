@@ -56,11 +56,10 @@ export default function SchedulesS({ navigation }: any) {
 
     setLoading(true);
     try {
-      // ✅ FORZAR QUE userId SEA NÚMERO
-      const userId = Number(user.id);
-      console.log('📤 Enviando cita para usuario ID:', userId, 'Tipo:', typeof userId);
 
-      // ✅ DATOS CON EL NOMBRE CORRECTO: clientId (minúscula)
+      const userId = Number(user.id);
+      
+
       const appointmentData = {
         clientId: userId,
         doctorName: form.doctorName.trim(),
@@ -71,11 +70,9 @@ export default function SchedulesS({ navigation }: any) {
         status: 'pending',
       };
 
-      console.log('📤 Datos completos a enviar:', appointmentData);
 
       const response = await appointmentService.createAppointment(appointmentData);
 
-      console.log('📦 Respuesta del servidor:', response);
 
       if (response.success) {
         Alert.alert(
@@ -110,7 +107,6 @@ export default function SchedulesS({ navigation }: any) {
         Alert.alert('Error', response.message || 'No se pudo agendar la cita');
       }
     } catch (error: any) {
-      console.error('❌ Error creating appointment:', error);
       Alert.alert('Error', error.message || 'Error al conectar con el servidor');
     } finally {
       setLoading(false);
