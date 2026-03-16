@@ -52,7 +52,7 @@ if (response.success) {
   setMessages(prev => [...prev, { text: response.node.message, isUser: false }]);
 
   if (response.action === 'schedule') {
-    console.log('➡️ Navegando a Schedules');
+    console.log(' Navegando a Schedules');
     navigation.navigate('Schedules');
   } else if (response.action === 'login') {
     navigation.navigate('Login');

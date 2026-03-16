@@ -63,7 +63,7 @@ export const useAppointments = () => {
   useEffect(() => {
     const handleAppStateChange = (nextAppState: string) => {
       if (nextAppState === 'active') {
-        // Aquí podrías recargar datos si es necesario
+        
       }
     };
 
